@@ -4,6 +4,11 @@ inquirer
 .prompt([
   {
     type: "input",
+    name: "username",
+    message: "What is your Github Username?",
+  },
+  {
+    type: "input",
     name: "title",
     message: "What is the project title?",
   },
@@ -27,9 +32,10 @@ inquirer
   message: "what is the credits?",
   },
   {
-    type: "rawlsit",
+    type: "rawlist",
     name: "license",
     message: "what is the license of your project?",
+    choices: ["MIT Open License", "other liscense"]
   },
   {
     type: "input",
@@ -41,25 +47,38 @@ inquirer
     name: "contribute",
     message: "How to contribute?",
   },
+  {
+  type: "input",
+  name: "Tests",
+  message: "Tests?",
+},
 ])
 .then ((answers) => {
   fs.writeFileSync(
-    "README.MD",
-    `# ${answers.title}
-    ## Description
-    ${answers.description}
-    ## Installation
-    ${answers.installation}
-    ## Usage
-    ${answers.usage}
-    ## Credits
-    ${answers.credits}
-    ## License
-    ${answers.license}
-    ## Features
-    ${answers.features}
-    ## How to contribute
-    ${answers.contribute}
+  "README.MD",
+  `# ${answers.title}
+  ## Description
+  ${answers.description}
+  ##Table of content:
+  [installation](#installation).
+  [Credits](#credits).
+  [Usage](#usage).
+  ## Installation
+  ${answers.installation}
+  ## Usage
+  ${answers.usage}
+  ## Questions
+  The link to the developer's github profile [${answers.username}](https://github.com/${answers.username}).
+  ## Credits
+  ${answers.credits}
+  ## License
+  ${answers.license}
+  ## Features
+  ${answers.features}
+  ## How to contribute
+  ${answers.contribute}
+  ## Tests
+  ${answers.Tests}
     `
   );
 })
@@ -71,3 +90,5 @@ inquirer
     // Something else went wrong
   }
 });
+
+
