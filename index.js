@@ -45,21 +45,29 @@ inquirer
 .then ((answers) => {
   fs.writeFileSync(
     "README.MD",
-    `# ${anwsers.title}
+    `# ${answers.title}
     ## Description
-    ${amswers.description}
+    ${answers.description}
     ## Installation
-    $ {answers.installation}
+    ${answers.installation}
     ## Usage
-    $ {answers.usage}
+    ${answers.usage}
     ## Credits
-    $ {answers.credits}
+    ${answers.credits}
     ## License
-    $ {answers.license}
+    ${answers.license}
     ## Features
-    $ {answers.features}
+    ${answers.features}
     ## How to contribute
-    $ {answers.contribute}
+    ${answers.contribute}
     `
   );
 })
+
+.catch((error) => {
+  if (error.isTtyError) {
+    // Prompt couldn't be rendered in the current environment
+  } else {
+    // Something else went wrong
+  }
+});
