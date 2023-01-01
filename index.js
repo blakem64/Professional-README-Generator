@@ -24,33 +24,33 @@ inquirer
   },
   {
     type: "input",
-    name: "installation",
-    message: "how to install the project?",
+    name: "Installation",
+    message: "How to install the project?",
   },
   {
     type: "input",
     name: "usage",
-    message: "how to use the project?",
+    message: "How to use the project?",
   },
   {type: "input",
   name: "credits",
-  message: "what are the credits?",
+  message: "What are the credits?",
   },
   {
     type: "rawlist",
     name: "license",
-    message: "what is the license of your project?",
-    choices: ["MIT License", "Apache License", "Eclipse License", "Mozilla License",]
+    message: "What is the license of your project?",
+    choices: ["MIT License", "Apache License", "Eclipse License", "Mozilla License"]
   },
   {
     type: "input",
     name: "features",
-    message: "what are the features of your project?",
+    message: "What are the features of your project?",
   },
   {
     type: "input",
     name: "contribute",
-    message: "How to contribute?",
+    message: "How to Contribute?",
   },
   {
   type: "input",
@@ -64,41 +64,38 @@ inquirer
   `# ${answers.title}
   ## Description
   ${answers.description}
-  ##Table of content:
-  [installation](#installation).
-  [Usage](#usage).
-  [Questions](#questions).
-  [Credits](#credits).
-  [License](#license).
-  [Features](#features).
-  [Contribute](#contribute).
-  [Tests](#tests).
+  ## Table of contents: <br>
+  [Installation](#Installation). <br>
+  [Usage](#usage). <br>
+  [Questions](#questions). <br>
+  [Credits](#credits). <br>
+  [License](#license). <br>
+  [Features](#features). <br>
+  [Contribute](#contribute). <br>
+  [Tests](#tests). <br>
   ## Installation
-  ${answers.installation}
+  ${answers.Installation}
   ## Usage
   ${answers.usage}
   ## Questions
-  The link to the developer's github profile [${answers.username}](https://github.com/${answers.username}).
-  How to reach the developer for questions [${answers.email}](${answer.email}).
+  The link to the developer's github profile [${answers.username}](https://github.com/${answers.username}). <br>
+  How to reach the developer for questions [${answers.email}](mailto:${answers.email}). <br>
   ## Credits
-  ${answers.credits}
+  ${answers.credits} <br>
   ## License
-  ${answers.license}
+  ${answers.license} <br>
   ## Features
-  ${answers.features}
+  ${answers.features} <br>
   ## How to contribute
-  ${answers.contribute}
+  ${answers.contribute} <br>
   ## Tests
-  ${answers.Tests}
+  ${answers.Tests} <br>
     `
   );
 })
 
 .catch((error) => {
-  if (error.isTtyError) {
-    // Prompt couldn't be rendered in the current environment
-  } else {
-    // Something else went wrong
-  }
+  console.log(error);
+
 });
 
